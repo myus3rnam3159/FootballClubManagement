@@ -90,7 +90,7 @@ cách enable extension của php:https://askinglot.com/how-do-i-enable-php-exten
     2. Tìm 'extension'  
     3. Muốn mở cái nào thì xóa dấu ';' trước ext đó.
 
-đặt tên url cho các yêu cầu của bài tập 2: thể sử dụng dạng ? + = như bên dưới cho php api mà code php vấn giữ nguyên -> test 2 kiểu trong  postman:  
+CÓ THỂ đặt tên url cho các yêu cầu của bài tập 2: thể sử dụng dạng ? + = như bên dưới cho php api mà code php vấn giữ nguyên -> test 2 kiểu trong  postman:  
     0.  /features   
     1.  /players  
     2.  /clubs  
