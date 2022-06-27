@@ -1,0 +1,85 @@
+<div class="container mt-3">
+  <div class="row">
+    <section class="col-3">
+      <ng-container *ngIf="this.clubs && this.numbers && this.nationalities">
+        <ng-container *ngIf="!this.clubNumber">
+          <h5 class="text-warning ml-3 mt-4 mb-3">Câu lạc bộ</h5>
+          <select
+            class="custom-select mb-4"
+            (change)="onClubSelected($event.target.value)"
+          >
+            <option *ngFor="let club of clubs.data" [value]="club.clubid" >
+              {{ club.clubname }}
+            </option>
+          </select>
+        </ng-container>
+
+        <h5 class="text-warning ml-3 mt-4 mb-3">Số áo</h5>
+        <select
+          class="custom-select mb-4"
+          (change)="onNumberSelected($event.target.value)"
+        >
+          <option *ngFor="let number of numbers.data" [value]="number">
+            {{ number }}
+          </option>
+        </select>
+
+        <h5 class="text-warning ml-3 mt-4 mb-3">Quốc tịch</h5>
+        <select
+          class="custom-select mb-4"
+          (change)="onNationalitySelected($event.target.value)"
+        >
+          <option
+            *ngFor="let nationality of nationalities.data"
+            [value]="nationality"
+          >
+            {{ nationality }}
+          </option>
+        </select>
+      </ng-container>
+    </section>
+    <section class="col-9">
+      <div class="d-flex justify-content-between align-items-center pb-2">
+        <app-paging-header
+          [totalCount]="totalCount"
+          [pageSize]="this.shopParams.pageSize"
+          [pageNumber]="this.shopParams.pageNumber"
+        ></app-paging-header>
+
+        <div class="form-inline" *ngIf="players">
+          <input
+            (keyup.enter)="onSearch()"
+            class="form-control mr-2"
+            #search
+            style="width: 300px"
+            placeholder="Tìm cầu thủ theo tên ở đây"
+            type="text"
+          />
+          <button (click)="onSearch()" class="btn btn-outline-primary my-2">
+            Tìm kiếm
+          </button>
+          <button (click)="onReset()" class="btn btn-outline-success ml-2 my-2">
+            Đặt lại
+          </button>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-4 mb-4" *ngFor="let item of players">
+          <app-product-item [product]="item"></app-product-item>
+        </div>
+      </div>
+      <br />
+      <br />
+      <br />
+      <div class="d-flex justify-content-md-center" *ngIf="totalCount > 0">
+        <app-pager
+          [pageSize]="this.shopParams.pageSize"
+          [totalCount]="this.totalCount"
+          (pageChanged)="onPageChanged($event)"
+        >
+        </app-pager>
+      </div>
+    </section>
+  </div>
+</div>

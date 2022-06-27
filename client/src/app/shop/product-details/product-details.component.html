@@ -1,0 +1,71 @@
+<div class="container mt-2">
+  <div class="col-6">
+    <div  *ngIf="this.playerForm" class ="d-flex justify-content-start align-items-center">
+      <form [formGroup]="this.playerForm" (ngSubmit)="this.onSubmit()" >
+        <div class="text-center mb-4">
+          <h1 class="h3 mb-3 font-weight-normal">Cập nhật thông tin cầu thủ</h1>
+        </div>
+
+        <div><label>Tên đầy đủ</label></div>
+        <div class="form-label-group">
+          <input type="text" formControlName="fullname" />
+        </div>
+        <div
+          *ngIf="this.playerForm.get('fullname').hasError('pattern')"
+          class="error"
+        >
+          Tên cầu thủ chỉ chứa chữ, không có kí tự đặc biệt
+        </div>
+
+        <div><label>Vị trí thi đấu </label></div>
+        <div class="form-label-group">
+          <input type="text" formControlName="position" />
+        </div>
+        <div
+          *ngIf="this.playerForm.get('position').hasError('pattern')"
+          class="error"
+        >
+          Vị trí thi đấu phải là cụm chữ in hoa, không dấu cách, tối đa 3 kí86
+          tự
+        </div>
+
+        <div><label>Quốc tịch</label></div>
+        <div class="form-label-group">
+          <input type="text" formControlName="nationality" />
+        </div>
+        <div
+          *ngIf="this.playerForm.get('nationality').hasError('pattern')"
+          class="error"
+        >
+          Quốc tịch là chuỗi kí tự không chứa số, không có kí tự đặc biệt
+        </div>
+
+        <div><label>Số áo</label></div>
+        <div class="form-label-group">
+          <input type="text" formControlName="number" />
+        </div>
+        <div
+          *ngIf="this.playerForm.get('number').hasError('pattern')"
+          class="error"
+        >
+          Số áo không được có chữ và kí tự đặc biệt
+        </div>
+
+        <br />
+        
+        <button
+          [disabled]="this.playerForm.invalid"
+          class="btn btn-lg btn-primary"
+          type="submit"
+        >
+          Lưu
+        </button>
+        <br>
+        <br>
+        <a class="delete" (click)="onDelete()">
+          Xóa
+        </a>
+      </form>
+    </div>
+  </div>
+</div>

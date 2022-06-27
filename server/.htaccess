@@ -1,0 +1,18 @@
+SetEnvIf Authorization .+ HTTP_AUTHORIZATION=$0
+
+Header set Access-Control-Allow-Origin "*"
+Header set Access-Control-Allow-Origin "https://localhost:4200"
+
+php_flag display_errors on
+
+#KHÔNG ĐƯỢC COMMENT CÙNG HÀNG
+
+# Bật rewrite engine
+RewriteEngine On
+# Không rewrite khi REQUEST_FILENAME là folder
+RewriteCond %{REQUEST_FILENAME} !-d
+# Không rewrite khi REQUEST_FILENAME là file
+RewriteCond %{REQUEST_FILENAME} !-f
+
+RewriteRule    ^players/([0-9]+)$          /controller/PlayersController.php?playerid=$1    [L]
+RewriteRule    ^clubs/([0-9]+)$          /controller/ClubsController.php?clubid=$1    [L]

@@ -1,0 +1,18 @@
+.section col-6 {
+  margin-left: 1em;
+}
+
+.delete {
+  display: block;
+  background-color: #ec4342;
+  padding: 4px;
+  font-size: 2em;
+  border-radius: 4px;
+  color: #ffffff;
+  cursor: pointer;
+  width: 30%;
+  text-decoration: none;
+}
+.error {
+  color: #d93a3e;
+}

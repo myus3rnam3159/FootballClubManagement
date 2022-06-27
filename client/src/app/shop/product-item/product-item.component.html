@@ -1,0 +1,12 @@
+<div class="card h-100 shadow-sm">
+ 
+  <div class="card-body d-flex flex-column">
+    <a routerLink="/shop/{{ product.playerid }}">
+      <h6 class="text-upppercase">{{ product.fullname }}</h6>
+    </a>
+    <span class="mb-2">Ngày sinh: {{ product.dob}}</span>
+    <span class="mb-2">Vị trí: {{product.position}}</span>
+    <span class="mb-2">Quốc tịch: {{product.nationality}}</span>
+    <span class="mb-2">Số áo: {{product.number}}</span>
+  </div>
+</div>

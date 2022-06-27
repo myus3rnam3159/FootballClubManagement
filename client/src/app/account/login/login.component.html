@@ -1,0 +1,33 @@
+<div class="d-flex justify-content-center mt-5">
+  <div class="col-3">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="text-center mb-4">
+        <h1 class="h3 mb-3 font-weight-normal">Đăng nhập</h1>
+      </div>
+
+      <div><label >Mã đăng nhập</label></div>
+      <div class="form-label-group">        
+        <input type="text" formControlName="userid" />
+      </div>
+      <div *ngIf="loginForm.get('userid').hasError('pattern')" class="error">
+        Mã đăng nhập phải toàn số, 8 đến 15 kí tự
+      </div>
+      
+      <div><label >Mật khẩu</label></div>
+      <div class="form-label-group">
+        <input type="password" formControlName="upassword" />
+      </div>
+      <div *ngIf="loginForm.get('upassword').hasError('pattern')" class="error">
+        Mật khẩu phải không cách, không dấu, không kí tự đặc biệt, có số, có viết hoa 8 đến 15 kí tự
+      </div>
+
+      <button
+        [disabled]="loginForm.invalid"
+        class="btn btn-lg btn-primary "
+        type="submit"
+      >
+        Đăng nhập
+      </button>
+    </form>
+  </div>
+</div>

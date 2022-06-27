@@ -1,0 +1,93 @@
+<div class="container mt-3">
+  <div class="row">
+    <section class="col-3">
+      <ng-container *ngIf="this.clubList">
+        <h5 class="text-warning ml-3 mt-4 mb-3">Câu lạc bộ</h5>
+        <select
+          class="custom-select mb-4"
+          (change)="this.onClubSelected($event.target.value)"
+        >
+          <option *ngFor="let club of this.clubList" [value]="club.clubid">
+            {{ club.clubname }}
+          </option>
+        </select>
+      </ng-container>
+    </section>
+    <section class="col-3">
+      
+      <div class="d-flex justify-content-between align-items-center pb-2">
+        <form [formGroup]="this.playerForm" (ngSubmit)="onSubmit()">
+          <div class="text-center mb-4">
+            <h1 class="h3 mb-3 font-weight-normal">Thêm cầu thủ mới</h1>
+          </div>
+
+          <div><label>Tên đầy đủ</label></div>
+          <div class="form-label-group">
+            <input type="text" formControlName="fullname" />
+          </div>
+          <div
+            *ngIf="playerForm.get('fullname').hasError('pattern')"
+            class="error"
+          >
+            Tên cầu thủ chỉ chứa chữ, không có kí tự đặc biệt
+          </div>
+
+          <div><label>Vị trí thi đấu</label></div>
+          <div class="form-label-group">
+            <input type="text" formControlName="position" />
+          </div>
+          <div
+            *ngIf="playerForm.get('position').hasError('pattern')"
+            class="error"
+          >
+            Vị trí thi đấu phải là cụm chữ in hoa, không dấu cách, tối đa 3 kí
+            tự
+          </div>
+
+          <div><label>Quốc tịch</label></div>
+          <div class="form-label-group">
+            <input type="text" formControlName="nationality" />
+          </div>
+          <div
+            *ngIf="playerForm.get('nationality').hasError('pattern')"
+            class="error"
+          >
+            Quốc tịch là chuỗi kí tự không chứa số, không có kí tự đặc biệt
+          </div>
+
+          <div><label>Số áo</label></div>
+          <div class="form-label-group">
+            <input type="text" formControlName="number" />
+          </div>
+          <div
+            *ngIf="playerForm.get('number').hasError('pattern')"
+            class="error"
+          >
+            Số áo không được có chữ và kí tự đặc biệt
+          </div>
+          <br>
+          <button
+            [disabled]="playerForm.invalid || !this.clubId"
+            class="btn btn-lg btn-primary "
+            type="submit"
+          >
+            Lưu
+          </button>
+        </form>
+      </div>
+      
+    </section>
+    <section class="col-3">
+        <div *ngIf="this.playerData && this.playerData.playerid" class="card-body d-flex flex-column">
+          <h5>Thông tin cầu thủ mới</h5>
+          <a routerLink="#">
+            <h6 class="text-upppercase">{{this.playerData.fullname}}</h6>
+          </a>
+          <span class="mb-2">Vị trí: {{this.playerData.position}}</span>
+          <span class="mb-2">Quốc tịch: {{this.playerData.nationality}}</span>
+          <span class="mb-2">Câu lạc bộ: {{this.clubName}}</span>
+          <span class="mb-2">Số áo: {{this.playerData.number}}</span>
+        </div>
+    </section>
+  </div>
+</div>

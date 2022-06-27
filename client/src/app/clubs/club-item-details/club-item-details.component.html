@@ -1,0 +1,52 @@
+<div class="container mt-3">
+  <div class="row">
+    <section class="col-3">
+      <div
+        *ngIf="this.clubForm"
+        class="d-flex justify-content-between align-items-center pb-2"
+      >
+        <form [formGroup]="this.clubForm" (ngSubmit)="onSubmit()">
+          <div class="text-center mb-4">
+            <h1 class="h3 mb-3 font-weight-normal">Chỉnh sửa câu lạc bộ</h1>
+          </div>
+
+          <div><label>Tên câu lạc bộ</label></div>
+          <div class="form-label-group">
+            <input type="text" formControlName="clubname" />
+          </div>
+          <div
+            *ngIf="this.clubForm.get('clubname').hasError('pattern')"
+            class="error"
+          >
+            Tên câu lạc bộ chỉ chứa chữ, không có kí tự đặc biệt
+          </div>
+
+          <div><label>Tên viết tắt</label></div>
+          <div class="form-label-group">
+            <input type="text" formControlName="shortname" />
+          </div>
+          <div
+            *ngIf="clubForm.get('shortname').hasError('pattern')"
+            class="error"
+          >
+            Tên viết tắt phải là cụm chữ in hoa, không dấu cách, tối đa 3 kí tự
+          </div>
+
+          <br />
+          <button
+            [disabled]="this.clubForm.invalid"
+            class="btn btn-lg btn-primary"
+            type="submit"
+          >
+            Lưu
+          </button>
+
+          <br />
+          <br />
+          <a class="delete" (click)="onDelete()"> Xóa </a>
+        </form>
+      </div>
+    </section>
+    
+  </div>
+</div>

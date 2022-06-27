@@ -1,0 +1,15 @@
+<div class="card h-100 shadow-sm">
+  <div class="card-body d-flex flex-column">
+    <a routerLink="/clubs/{{ club.clubid }}">
+      <h6 class="text-upppercase">{{ club.clubname }}</h6>
+    </a>
+    <span class="mb-2">Tên rút gọn: {{ club.shortname }}</span>
+    <button
+      routerLink="/clubs/updateclub/{{ club.clubid }}"
+      type="button"
+      class="btn btn-sm btn-primary"
+    >
+      sửa
+    </button>
+  </div>
+</div>

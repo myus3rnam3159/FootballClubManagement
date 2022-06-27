@@ -1,0 +1,18 @@
+.featured{
+    height: 10px;
+    margin-top: 100px;
+}
+
+img{
+    object-fit: cover;
+    height: 600px;
+    width: 100%;
+}
+
+.list-group{
+    margin-top: 100px;
+}
+
+.list-group :hover{
+    background-color:antiquewhite;
+}
