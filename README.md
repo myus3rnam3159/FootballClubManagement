@@ -132,9 +132,10 @@ Port chuẩn:
     HTTP: 80  
     HTTPS: 443  
     MySQL: 3306  
-Cài:  
 
-    php:  https://windows.php.net/download#php-8.1  
+Cài:
+
+php:    https://windows.php.net/download#php-8.1  
         1. Phải tải bản thread safe zip  
         2. Giải nén vào c:\php  
         3. Tìm file php8apache2_4.dll -> dùng để connect tới apache với php trong runtime  
@@ -153,7 +154,7 @@ Cài:
             d. copy file phpinfo.php vào C:\Apache24\htdocs để test  
             e. vào localhost/phpinfo.php -> có bảng là OK!  
 
-    mysql:https://dev.mysql.com/downloads/installer/  
+mysql:  https://dev.mysql.com/downloads/installer/  
         1. Chọn theo default, skip requirement failing  
         2. root password: mysqlrootpw  
         3. username: root
@@ -164,7 +165,7 @@ Cài:
             a. Đăng nhập vào mysql với câu lệnh mysql -u root -p + nhập pass cũ.  
             b. chạy ALTER USER 'root'@'localhost' IDENTIFIED BY 'root'; + enter    
 
-    ApacheServer on windows:  
+ApacheServer on windows:  
         1. https://www.apachelounge.com/download/  
         2. Visual C++ Redistributable for Visual Studio 2015-2022(was 2015-2019 có thể được)  
         3. giải nén file download -> cop folder Apache24 vào ổ C  
