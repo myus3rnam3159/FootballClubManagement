@@ -420,12 +420,12 @@ if(array_key_exists("playerid", $_GET)){
             #Kiểm tra có trùng số áo + câu lạc bộ hay không - chưa làm.
 
             #Đếm số dòng Player đã có
-            $query = $readDB->prepare('select count(playerid) as playerCount from player;');
+            $query = $readDB->prepare('select max(playerid) as playerCount from player;');
             $query->execute();
             $rowCount = $query->fetch(PDO::FETCH_ASSOC);
 
             #Tạo player id mới
-            $newPlayerId = intval($rowCount['playerCount']) + 1001;
+            $newPlayerId = intval($rowCount['playerCount']) + 1;
 
             #Tạo đối tượng Player mới
             $query = $writeDB->prepare(

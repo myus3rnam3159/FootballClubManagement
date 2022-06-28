@@ -141,11 +141,11 @@ if($_SERVER['REQUEST_METHOD'] === 'PATCH'){
             #Kiểm tra trùng tên - chưa làm
 
             #Đếm số dòng Club đã có
-            $query = $readDB->prepare('select count(clubid) as clubCount from club;');
+            $query = $readDB->prepare('select max(clubid) as clubCount from club;');
             $query->execute();
             $rowCount = $query->fetch(PDO::FETCH_ASSOC);
 
-            $newClubId = intval($rowCount['clubCount']) + 101;
+            $newClubId = intval($rowCount['clubCount']) + 1;
             $query = $writeDB->prepare(
                 "insert into club
                 (clubid, clubname, shortname, stadiumid, coachid)
