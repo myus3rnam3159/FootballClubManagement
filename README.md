@@ -1,3 +1,5 @@
+#VIDEO DEMO: https://youtu.be/mdowO2Uvp0g
+
 #NGUỒN THAM KHẢO
 
 Reload windows: https://www.cloudhadoop.com/angular-reload-component/ 
@@ -109,10 +111,11 @@ CÓ THỂ đặt tên url cho các yêu cầu của bài tập 2: thể sử d�
     * tương tự cho club
 
 chạy php bên ngoài htdocs trong ổ C: https://stackoverflow.com/questions/2975027/how-to-run-a-php-file-on-my-computer-that-is-outside-the-htdocs-directory  
-    1. Vào htdocs trong ổ C:\Apache2.4  
+    1. Vào htdocs trong ổ C:\Apache24  
     2. vào file httpd.conf trong folder conf  
     3. chỉnh DocumentRoot dẫn tới folder chứa file php muốn chạy.  
-    *vd: ${SRVROOT}/../Users/war4m/OneDrive/Desktop/SourceRepos/Hcmus/UngDungPhanTan/ONha/18127057_Football/server
+    4. SVROOT hiện tại đang có giá trị là "c:/Apache24" - giữ nguyên
+    *vd: Document Root: ${SRVROOT}/../Users/war4m/OneDrive/Desktop/SourceRepos/Hcmus/UngDungPhanTan/ONha/18127057_Football/server
 
 phiên bản bootstrap đang dùng: 4.6.0
 
